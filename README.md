@@ -43,5 +43,32 @@
 </div>
 
 ## Nhận xét kết quả thực nghiệm
-1. Về mặt số liệu thì **std_sort** và **quick_sort** là hai thuật toán sắp xếp nhanh nhất (cả hai đều có thời gian thực thi trung bình xấp xỉ **N * log(N)**) trong đó **std_sort** nhanh hơn một chút so với **quick_sort**. Xếp sau đó là **heap_sort** và sau cùng là **merge_sort**
-2.   
+* Về mặt số liệu thì **std_sort** và **quick_sort** là hai thuật toán sắp xếp nhanh nhất (cả hai đều có thời gian thực thi trung bình xấp xỉ **N * log(N)**) trong đó **std_sort** nhanh hơn một chút so với **quick_sort**. Xếp sau đó là **heap_sort** và sau cùng là **merge_sort**
+* **std_sort** trong `C++` sử dụng thuật toán **intro_sort** là sử kết hợp chủ yếu của ba thuật toán **quick_sort**, **heap_sort** và **insertion_sort** để giảm thiểu tối đa thời gian chạy bằng cách giới hạn số lần gọi đệ quy (khi số lần đệ quy vượt quá **log(N)** sẽ chuyển sang thuật toán khác là **heap_sort**)
+
+``` 
+Pesudocode:
+procedure sort(A : array):
+    let maxdepth = ⌊log2(length(A))⌋ × 2
+    introsort(A, maxdepth)
+
+procedure introsort(A, maxdepth):
+    n ← length(A)
+    if n ≤ 1:
+        return  // base case
+    else if maxdepth = 0:
+        heapsort(A)
+    else:
+        p ← partition(A)  // assume this function does pivot selection, p is the final position of the pivot
+        introsort(A[0:p-1], maxdepth - 1)
+        introsort(A[p+1:n], maxdepth - 1)
+```
+Do đó nó được xem như là thuật toán sắp xếp tốt nhất hiện nay và được sử dụng rộng rãi.
+
+* Về mặt lý thuyết thì **quick_sort** trong trường hợp tệ nhất có độ phức tạp là **O(N^2)** còn **heap_sort** và **merge_sort** thì đều có độ phức tạp là **N * log(N)** trong mọi trường hợp. Thế nhưng kết quả thực nghiệm lại cho thấy **quick_sort** chạy nhanh hơn **merge_sort** và **heap_sort**. Nguyên nhân là **quick_sort** tốn ít không gian bổ sung hơn (**merge_sort** cần thêm bộ nhớ để thực hiện thao tác trộn hai dãy đã được sắp xếp) và khả năng định vị bộ nhớ **cache** tốt hơn. Điều này ảnh hưởng tới thời gian thực thi chương trình nên trong nhiều trường hợp **quick_sort** nhanh hơn **heap_sort** và **heap_sort** sẽ nhanh hơn **merge_sort** (vì **heap_sort** không cần thêm bộ nhớ như **merge_sort**)
+
+# Tài liệu tham khảo
+* [Introsort algorithm of std::sort()](https://en.wikipedia.org/wiki/Introsort)
+* [Quicksort vs Mergesort and Heapsort](https://stackoverflow.com/questions/70402/why-is-quicksort-better-than-mergesort)
+* [Memory location](https://pythonspeed.com/articles/performance-memory-locality/)
+* [Sorting algorithms](https://www.geeksforgeeks.org/sorting-algorithms/)
