@@ -31,13 +31,17 @@
 
 |             |   Test 1   |   Test 2   |   Test 3   |   Test 4   |   Test 5   |   Test 6   |   Test 7   |   Test 8   |   Test 9   |   Test 10   |
 |-------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|-------------|
-|   STD_SORT  |    248     |    191     |    421     |    508     |    448     |    436     |    425     |    408     |    414     |     430     | 
-|  MERGE_SORT |    844     |    813     |   1019     |   1163     |   1000     |   1000     |   1015     |   1000     |    999     |    1000     |  
-|  HEAP_SORT  |    641     |    625     |    749     |    750     |    749     |    750     |    750     |    735     |    734     |     734     |
-|  QUICK_SORT |     78     |     78     |    281     |    281     |    281     |    281     |    297     |    281     |    281     |    282      |
+|  QUICK_SORT |     93     |     76     |    248     |    246     |    247     |    295     |    260     |    244     |    246     |     244     | 
+|  MERGE_SORT |    707     |    672     |    856     |    919     |    849     |    848     |    871     |    850     |    847     |     850     |  
+|  HEAP_SORT  |    388     |    379     |    545     |    538     |    555     |    553     |    545     |    535     |    566     |     563     |
+|  STD_SORT   |     47     |     51     |    210     |    215     |    218     |    210     |    214     |    223     |    237     |     216     |
 
 * Biểu đồ thống kê:
 
 <div align="center"> 
     <img src="Image/result.PNG">
 </div>
+
+## Nhận xét kết quả thực nghiệm
+1. Về mặt số liệu thì **std_sort** và **quick_sort** là hai thuật toán sắp xếp nhanh nhất (cả hai đều có thời gian thực thi trung bình xấp xỉ **N * log(N)**) trong đó **std_sort** nhanh hơn một chút so với **quick_sort**. Xếp sau đó là **heap_sort** và sau cùng là **merge_sort**
+2.   
