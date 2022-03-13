@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void heapify(vector<int> &arr, int n, int i) {
+void heapify(int arr[], int n, int i) {
     int largest = i;
     int left = 2*i + 1, right = 2*i + 2;
     if(left < n && arr[left] > arr[largest]) largest = left;
@@ -12,7 +12,7 @@ void heapify(vector<int> &arr, int n, int i) {
     }
 }
 
-void heap_sort(vector<int> &arr, int l, int n) {
+void heap_sort(int arr[], int l, int n) {
     ++n;
     for(int i=n/2 - 1; i>=0; i--) {
         heapify(arr, n, i);
