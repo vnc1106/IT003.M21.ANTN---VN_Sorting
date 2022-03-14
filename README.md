@@ -4,15 +4,17 @@
 2. Viết các chương trình sắp xếp dãy theo các thuật toán QuickSort, HeapSort, MergeSort và chương trình gọi hàm sort của C++
 3. Chạy thử nghiệm mỗi chương trình đã viết ở trên với bộ dữ liệu đã tạo, ghi nhận thời gian thực thi từng lần thử nghiệm
 ## Mô tả các thư mục trên GitHub
-1. Thư mục `Gen_test` gồm:
-* `gen.cpp`   : Chương trình sinh bộ dữ liệu
-* `Output_Gen` : Gồm 10 file `*.txt` là bộ dữ liệu được sinh bởi `gen.cpp`
-2. Thư mục `Sort_Test` gồm:
+1. Thư mục `Data` gồm:
+* `gen_data.cpp`   : Chương trình sinh bộ dữ liệu
+* `output_data` : Gồm 10 file `*.txt` là bộ dữ liệu được sinh bởi `gen_data.cpp`
+2. Thư mục `Source Code` gồm:
 * `std_sort.h` : Mã nguồn thuật toán `std::sort`
 * `heap_sort.h` : Mã nguồn thuật toán **Heap Sort**
 * `quick_sort.h` : Mã nguồn thuật toán **Quick Sort**
 * `merge_sort.h` : Mã nguồn thuật toán **Merge Sort**
 * `main.cpp` : Chương trình thực nghiệm khảo sát thời gian thực thi các phương pháp sort trên bộ dữ liệu đã được tạo 
+3. Thư mục `Image` gồm các hình ảnh khi chương trình thực thi thành công
+4. File `report.pdf` : bản báo cáo và nhận xét kết quả thực nghiệm
 ## Tiến hành thực nghiệm:
 **Bước 1:** Chạy file `gen.cpp` để khởi tạo bộ dữ liệu thực nghiệm. Kết quả khi chương trình chạy thành công:
 
@@ -31,9 +33,9 @@
 
 |             |   Test 1   |   Test 2   |   Test 3   |   Test 4   |   Test 5   |   Test 6   |   Test 7   |   Test 8   |   Test 9   |   Test 10   |
 |-------------|------------|------------|------------|------------|------------|------------|------------|------------|------------|-------------|
-|  QUICK_SORT |     93     |     76     |    248     |    246     |    247     |    295     |    260     |    244     |    246     |     244     | 
-|  MERGE_SORT |    707     |    672     |    856     |    919     |    849     |    848     |    871     |    850     |    847     |     850     |  
+|  QUICK_SORT |     93     |     76     |    248     |    246     |    247     |    295     |    260     |    244     |    246     |     244     |
 |  HEAP_SORT  |    388     |    379     |    545     |    538     |    555     |    553     |    545     |    535     |    566     |     563     |
+|  MERGE_SORT |    707     |    672     |    856     |    919     |    849     |    848     |    871     |    850     |    847     |     850     |  
 |  STD_SORT   |     47     |     51     |    210     |    215     |    218     |    210     |    214     |    223     |    237     |     216     |
 
 * Biểu đồ thống kê:
@@ -65,7 +67,7 @@ procedure introsort(A, maxdepth):
 ```
 Do đó nó được xem như là thuật toán sắp xếp tốt nhất hiện nay và được sử dụng rộng rãi.
 
-* Về mặt lý thuyết thì **quick_sort** trong trường hợp tệ nhất có độ phức tạp là **O(N^2)** còn **heap_sort** và **merge_sort** thì đều có độ phức tạp là **N * log(N)** trong mọi trường hợp. Thế nhưng kết quả thực nghiệm lại cho thấy **quick_sort** chạy nhanh hơn **merge_sort** và **heap_sort**. Nguyên nhân là **quick_sort** tốn ít không gian bổ sung hơn (**merge_sort** cần thêm bộ nhớ để thực hiện thao tác trộn hai dãy đã được sắp xếp) và khả năng định vị bộ nhớ **cache** tốt hơn. Điều này ảnh hưởng tới thời gian thực thi chương trình nên trong nhiều trường hợp **quick_sort** nhanh hơn **heap_sort** và **heap_sort** sẽ nhanh hơn **merge_sort** (vì **heap_sort** không cần thêm bộ nhớ như **merge_sort**)
+* Về mặt lý thuyết thì **quick_sort** trong trường hợp tệ nhất có độ phức tạp là **O(N^2)** còn **heap_sort** và **merge_sort** thì đều có độ phức tạp là **N * log(N)** trong mọi trường hợp. Thế nhưng kết quả thực nghiệm lại cho thấy **quick_sort** chạy nhanh hơn **merge_sort** và **heap_sort**. Nguyên nhân là **quick_sort** tốn ít không gian bổ sung hơn (**merge_sort** cần thêm bộ nhớ để thực hiện thao tác trộn hai dãy đã được sắp xếp) và khả năng định vị bộ nhớ **cache** tốt hơn. Điều này ảnh hưởng tới thời gian thực thi chương trình nên trong nhiều trường hợp **quick_sort** nhanh hơn **heap_sort** và **heap_sort** sẽ nhanh hơn **merge_sort** (vì **heap_sort** không cần thêm bộ nhớ và gọi đệ quy nhiều lần như **merge_sort**)
 
 # Tài liệu tham khảo
 * [Introsort algorithm of std::sort()](https://en.wikipedia.org/wiki/Introsort)
