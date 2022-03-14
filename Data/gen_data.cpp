@@ -14,7 +14,7 @@ int main() {
     srand(time(NULL));
     for(int i=1; i<=10; i++) {
         ofstream f;
-        f.open("D:\\GitHub\\Sorting\\Gen_test\\Output_Gen\\in" + to_string(i) + ".txt");
+        f.open("D:\\GitHub\\Sorting\\Data\\output_data\\in" + to_string(i) + ".txt");
         vector<int> vec = gen();
         if(i == 1) sort(vec.begin(), vec.end());
         if(i == 2) sort(vec.begin(), vec.end(), greater<int>());

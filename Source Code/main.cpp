@@ -19,7 +19,7 @@ vector<double> RUN_TEST(void (*f_sort)(int arr[], int l, int r), string method) 
         // read input test
 
         ifstream f;
-        f.open("D:\\GitHub\\Sorting\\Gen_test\\Output_Gen\\in" + to_string(test) + ".txt", ios_base:: in);
+        f.open("D:\\GitHub\\Sorting\\Data\\output_data\\in" + to_string(test) + ".txt", ios_base:: in);
         for(int i=0; i<N; i++) f >> arr[i];
 
         // calculate execution time for each input
